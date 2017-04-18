@@ -1,4 +1,4 @@
-package spring_rest;
+package User;
 
 public class UserDAOMongoDB implements IUserDAO {
 

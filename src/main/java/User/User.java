@@ -1,4 +1,6 @@
-package spring_rest;
+package User;
+
+import Event.Event;
 
 import java.util.Date;
 import java.util.List;

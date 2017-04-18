@@ -1,4 +1,6 @@
-package spring_rest;
+package User;
+
+import spring_rest.User;
 
 public interface IUserDAO {
 

@@ -1,4 +1,4 @@
-package spring_rest;
+package User;
 
 import java.util.Date;
 

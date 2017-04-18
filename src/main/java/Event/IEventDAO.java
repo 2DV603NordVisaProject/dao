@@ -1,4 +1,4 @@
-package spring_rest;
+package Event;
 
 public interface IEventDAO {
 }
