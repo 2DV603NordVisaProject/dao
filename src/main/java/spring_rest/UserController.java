@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
+
+    private IUserDAO dao = new UserDAOMongoDB();
+
     @RequestMapping("/user/{id}")
     String getUser(@PathVariable String id) {
-        return id;
+        return dao.getUser(id).toString();
     }
 }
