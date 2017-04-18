@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    private IUserDAO dao = new User.UserDAO();
+    private IUserDAO dao = new UserDAO();
 
     @RequestMapping("/user/{id}")
     String getUser(@PathVariable String id) {
