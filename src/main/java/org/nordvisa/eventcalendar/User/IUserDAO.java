@@ -1,4 +1,4 @@
-package User;
+package org.nordvisa.eventcalendar.User;
 
 import java.util.List;
 

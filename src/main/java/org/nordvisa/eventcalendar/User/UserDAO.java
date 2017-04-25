@@ -1,6 +1,6 @@
-package User;
+package org.nordvisa.eventcalendar.User;
 
-import DAO.DAO;
+import org.nordvisa.eventcalendar.DAO.DAO;
 
 import java.util.List;
 

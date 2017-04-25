@@ -1,6 +1,6 @@
-package User;
+package org.nordvisa.eventcalendar.User;
 
-import Event.Event;
+import org.nordvisa.eventcalendar.Event.Event;
 
 import java.util.Date;
 import java.util.List;

@@ -1,4 +1,4 @@
-package Event;
+package org.nordvisa.eventcalendar.Event;
 
 import java.util.Date;
 import java.util.List;

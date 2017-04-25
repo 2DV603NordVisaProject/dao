@@ -1,4 +1,4 @@
-package DAO;
+package org.nordvisa.eventcalendar.DAO;
 
 /**
  * Handles database connection

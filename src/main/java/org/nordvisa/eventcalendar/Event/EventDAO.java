@@ -1,8 +1,8 @@
-package Event;
+package org.nordvisa.eventcalendar.Event;
 
 import java.util.Date;
 import java.util.List;
-import DAO.DAO;
+import org.nordvisa.eventcalendar.DAO.DAO;
 
 public class EventDAO extends DAO implements IEventDAO {
     public void createEvent(Event event) {
