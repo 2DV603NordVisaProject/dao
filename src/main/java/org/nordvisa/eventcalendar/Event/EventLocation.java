@@ -1,23 +1,23 @@
 package org.nordvisa.eventcalendar.Event;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.GeocodingApiRequest;
 import com.google.maps.model.AddressComponent;
-import com.google.maps.model.AddressComponentType;
-import com.google.maps.model.AddressType;
 import com.google.maps.model.GeocodingResult;
-
-import java.util.Arrays;
 
 public class EventLocation {
 
     private double longitude;
     private double latitude;
     private String address;
+    private String postalCode;
+    private String city;
     private String country;
+
+    @JsonIgnore
     private String region;
-    private String description;
 
     public EventLocation() {
 
@@ -55,20 +55,28 @@ public class EventLocation {
         this.region = region;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public void geoCode() {
@@ -87,11 +95,14 @@ public class EventLocation {
 
             for (AddressComponent addressComponent : results[0].addressComponents) {
                 switch (addressComponent.types[0]) {
-                    case COUNTRY:
-                        setCountry(addressComponent.shortName);
+                    case POSTAL_CODE:
+                        setPostalCode(addressComponent.longName);
                         break;
                     case LOCALITY:
-                        setRegion(addressComponent.longName);
+                        setCity(addressComponent.longName);
+                        break;
+                    case COUNTRY:
+                        setCountry(addressComponent.shortName);
                         break;
                     default:
                         break;
