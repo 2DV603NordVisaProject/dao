@@ -96,9 +96,15 @@ public class EventLocation {
             for (AddressComponent addressComponent : results[0].addressComponents) {
                 switch (addressComponent.types[0]) {
                     case POSTAL_CODE:
-                        setPostalCode(addressComponent.longName);
+                        // Remove any white space from postal code
+                        String postalCode = addressComponent.longName
+                                .replaceAll("\\s+","");
+                        setPostalCode(postalCode);
                         break;
                     case LOCALITY:
+                        setCity(addressComponent.longName);
+                        break;
+                    case POSTAL_TOWN:
                         setCity(addressComponent.longName);
                         break;
                     case COUNTRY:
