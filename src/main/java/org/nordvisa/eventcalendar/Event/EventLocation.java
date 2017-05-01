@@ -3,7 +3,9 @@ package org.nordvisa.eventcalendar.Event;
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.GeocodingApiRequest;
-import com.google.maps.PendingResult;
+import com.google.maps.model.AddressComponent;
+import com.google.maps.model.AddressComponentType;
+import com.google.maps.model.AddressType;
 import com.google.maps.model.GeocodingResult;
 
 import java.util.Arrays;
@@ -82,6 +84,20 @@ public class EventLocation {
             setLatitude(results[0].geometry.location.lat);
             setLongitude(results[0].geometry.location.lng);
             setAddress(results[0].formattedAddress);
+
+            for (AddressComponent addressComponent : results[0].addressComponents) {
+                switch (addressComponent.types[0]) {
+                    case COUNTRY:
+                        setCountry(addressComponent.shortName);
+                        break;
+                    case LOCALITY:
+                        setRegion(addressComponent.longName);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
         } catch (Exception e) {
             // Handle error
         }
