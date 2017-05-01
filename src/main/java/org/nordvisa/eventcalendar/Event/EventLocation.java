@@ -12,6 +12,7 @@ public class EventLocation {
     private double longitude;
     private double latitude;
     private String address;
+    private String parsedAddress;
     private String postalCode;
     private String city;
     private String country;
@@ -63,6 +64,14 @@ public class EventLocation {
         this.address = address;
     }
 
+    public String getParsedAddress() {
+        return parsedAddress;
+    }
+
+    public void setParsedAddress(String parsedAddress) {
+        this.parsedAddress = parsedAddress;
+    }
+
     public String getPostalCode() {
         return postalCode;
     }
@@ -91,7 +100,8 @@ public class EventLocation {
             GeocodingResult[] results = request.await();
             setLatitude(results[0].geometry.location.lat);
             setLongitude(results[0].geometry.location.lng);
-            setAddress(results[0].formattedAddress);
+            setAddress(this.address);
+            setParsedAddress(results[0].formattedAddress);
 
             for (AddressComponent addressComponent : results[0].addressComponents) {
                 switch (addressComponent.types[0]) {
